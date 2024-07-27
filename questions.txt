@@ -1,0 +1,30 @@
+hi 1
+how are you? 2
+bye 3
+default 4
+what is career counseling? 5
+who am i? 6
+what is a career counseling test? 7
+give me some suggestions of my career 8
+suggests me some high paying jobs 9
+i want to be a successful person? 10
+who created you? 11
+who are you? 12
+which class are you in? 13
+which stream do you prefer? 14
+which stream have you chosen? 15
+how much percentage should be there for choosing Computer Science? 16
+how much range of marks are needed for choosing English, Social science, Hindi? 17
+job profiles I can get? 18
+what kind of learner are you? 19
+why is career counseling important? 20
+how can career counseling help in choosing a career path? 21
+how can someone prepare for a career counseling session? 22
+what are some potential career outcomes of career counseling? 23
+can career counseling help with job search strategies? 24
+how long does career counseling typically last? 25
+what qualifications should one look for in a career counselor? 26
+how does career counseling address work-life balance? 27
+what ethical considerations are important in career counseling? 28
+how can individuals with disabilities benefit from career counseling? 29
+what role does networking play in career counseling? 30

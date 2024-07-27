@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: url(img.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #e5d797;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-history {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            background-color: aquamarine;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-input {
+            width: calc(100% - 85px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #e5d797;
+            background-color: bisque;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .send-button {
+            width: 80px;
+            padding: 8px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chatbot-container">
+        <h2 style="text-align: center;">Career Counseling Chatbot</h2>
+        <div class="chat-history" id="chat-history"></div>
+        <div style="display: flex;">
+            <input type="text" id="user-input" class="user-input" placeholder="Type your question...">
+            <button type="button" id="send-button" class="send-button" onclick="sendMessage()">Ask</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value.trim().toLowerCase();
+            var chatHistory = document.getElementById('chat-history');
+
+            // Clear user input
+            document.getElementById('user-input').value = '';
+
+            // Display user message
+            var userMessage = document.createElement('p');
+            userMessage.textContent = 'You: ' + userInput;
+            chatHistory.appendChild(userMessage);
+
+            // Get and display bot response
+            var botResponse = getBotResponse(userInput);
+            var botMessage = document.createElement('p');
+            botMessage.textContent = 'Bot: ' + botResponse;
+            chatHistory.appendChild(botMessage);
+
+            // Scroll to bottom of chat history
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            var responses = {
+                "hi": "Hello!",
+                "how are you?": "I'm good, thank you!",
+                "bye": "Goodbye!",
+                "default": "I'm sorry, I don't understand that.",
+                "what is career counseling?": "Career counseling is a type of advice-giving and support provided by career counselors to their clients, to help the clients manage their journey through life, learning and work changes (career).",
+                "who am i?": "you are my client.",
+                "what is a career counseling test?": "Tests form a large part of any career assessment. They allow for the personality traits of individuals to be unveiled, alongside skills, strengths, values, interests, emotional intelligence, motivations, and goals (Maree, 2015). There are many career counseling tests and questionnaires you can use with your students and clients.",
+                "give me some suggestions of my career": "you can be the following : (a) Pilot, (b) YouTuber, (c) Doctor ETC.",
+                "suggests me some high paying jobs?": "some of thm are 1.Data Scientists 2.Artificial Intelligence (AI) Engineer 3. Blockchain developer 4. Investment Banker ETC.",
+                "i want to be a successful person?": "That's good .",
+                "who created you?": "I have  been created by Ansh of class VIII.",
+                "who are you?": "I am a Career Counseling Chatbot.",
+                "which class are you in?": "I am a ChatBot , I do not have any class.",
+                "which stream do you prefer?": "As I am a ChatBot , I would perfer Computer Science.",
+                "which stream have you chosen?": "I am a ChatBot , I does not have any stream.",
+                "how much percentage should be there for choosing computer science?": "80-90 above",
+                "how much range of marks are needed for choosing english, social science, hindi?": "35 and above.",
+                "job profiles i can get?": "a) Entrepreneur,b)	Defence personnel,c)	Central govt. employee,d)	Private sector ETC.",
+                "what kind of learner are you?": "Visual",
+                "why is career counseling important?": "Career counseling helps individuals clarify their career goals, explore various career options, and make informed decisions based on their strengths and aspirations. It can also provide insights into career trends, job market demands, and necessary skills for different professions.",
+                "how can career counseling help in choosing a career path?": "Career counseling uses assessments, discussions, and exploration of interests and skills to match individuals with suitable career options. Counselors provide information about different professions, industry trends, educational requirements, and career growth opportunities, empowering individuals to make informed decisions.",
+                "how can someone prepare for a career counseling session?": "Before a career counseling session, individuals can reflect on their interests, strengths, values, and career aspirations. They can also prepare questions about specific careers or concerns they have regarding their career path. Bringing relevant documents such as resumes, academic transcripts, or job descriptions can also be helpful.",
+                "what are some potential career outcomes of career counseling?": "Career counseling can help individuals find clarity in their career goals, choose suitable majors or educational programs, identify potential career paths, improve job search strategies, develop skills needed for career advancement, and overcome career-related challenges or barriers.",
+                "can career counseling help with job search strategies?": "Yes, career counseling can assist individuals in developing effective job search strategies. This includes resume writing, interview preparation, networking tips, and understanding the job market. Career counselors provide guidance on where to look for job opportunities and how to effectively showcase one's skills and experience to potential employers.",
+                "how long does career counseling typically last?": "The duration of career counseling varies depending on individual needs and goals. Some people may benefit from a single session focused on a specific issue, while others may engage in multiple sessions over weeks or months to explore career options, develop skills, or navigate career transitions.",
+                "what qualifications should one look for in a career counselor?": "psychology, or career development. Professional certifications such as National Certified Counselor (NCC) or Certified Career Counselor (CCC) can indicate specialized training in career counseling. Additionally, experience working with individuals in similar career stages or industries can be beneficial.",
+                "how does career counseling address work-life balance?": "Career counseling can help individuals evaluate their priorities and values related to work-life balance. Counselors may explore options such as flexible work arrangements, time management strategies, or career paths that better align with personal and family goals.",
+                "what ethical considerations are important in career counseling?": "Ethical considerations in career counseling include maintaining client confidentiality, respecting client autonomy and decisions, providing accurate information about career options, avoiding conflicts of interest, and adhering to professional standards and codes of ethics established by counseling associations.",
+                "how can individuals with disabilities benefit from career counseling?": "Career counseling for individuals with disabilities focuses on exploring career options that accommodate their unique abilities and challenges. Counselors may provide resources on disability rights, reasonable accommodations in the workplace, and strategies for advocating for oneself during the job search and career development process.",
+                "what role does networking play in career counseling?": "Networking is crucial in career counseling as it helps individuals build professional relationships, gather information about career opportunities, and access hidden job markets. Career counselors can provide guidance on effective networking strategies, including utilizing social media platforms and attending industry events.",
+                // Add more responses as needed
+            };
+
+            return responses[userInput] || responses["default"];
+        }
+    </script>
+
+</body>
+
+</html>
